@@ -3,12 +3,16 @@
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
+<script lang="ts">
 
 export default {
   name: 'Home',
   components: {
   },
 };
+
 </script>
+
+<style lang="scss" scoped>
+
+</style>
