@@ -1,46 +1,75 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
+<v-app>
+  <!-- <v-navigation-drawer app>
+  </v-navigation-drawer> -->
+
+  <v-app-bar
+    dark
+    app
+  >
+    <!-- -->
+    <a href="/" class="text-h3 brand">
+      Re-e-pair
+    </a>
+    <v-spacer></v-spacer>
+    <v-dialog
+      v-model="dialog"
+      width="500"
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="red lighten-2"
+          dark
+          v-bind="attrs"
+          v-on="on"
+        >
+          SignUp/Login
+        </v-btn>
+      </template>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+      <v-card>
+        <v-card-title class="headline grey lighten-2">
+          Privacy Policy
+        </v-card-title>
 
-      <v-spacer></v-spacer>
+        <v-card-text>
+        </v-card-text>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>fas fa-external-link-alt</v-icon>
-      </v-btn>
-    </v-app-bar>
+        <v-divider></v-divider>
 
-    <v-main>
-      <HelloWorld/>
-    </v-main>
-  </v-app>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            text
+            @click="dialog = false"
+          >
+            I accept
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-app-bar>
+
+  <!-- Sizes your content based upon application components -->
+  <v-main>
+
+    <!-- Provides the application the proper gutter -->
+    <v-container fluid>
+
+      <!-- If using vue-router -->
+      <router-view></router-view>
+    </v-container>
+  </v-main>
+
+  <v-footer app>
+    <v-row>
+      <v-col class="text-center">
+        &copy; 2020 LSM
+      </v-col>
+    </v-row>
+  </v-footer>
+</v-app>
 </template>
 
 <script lang="ts">
@@ -57,3 +86,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.brand {
+  text-decoration: none;
+  color: aliceblue;
+}
+</style>
